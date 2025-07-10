@@ -2,85 +2,39 @@
   import bio from '$lib/data/bio';
 </script>
 
-<section class="bio">
-  <h2>{bio.name}</h2>
-  <h3>{bio.title} - {bio.location}</h3>
-  <p class="bio-text">
+<section class="max-w-3xl mx-auto p-8">
+  <h2 class="text-3xl mb-4">{bio.name}</h2>
+  <h3 class="text-xl mt-6 mb-2">{bio.title} - {bio.location}</h3>
+  <p class="leading-relaxed mb-8">
     {bio.bio}
   </p>
 
-  <div class="skills">
-    <h3>Skills</h3>
-    <ul>
+  <div>
+    <h3 class="text-xl mt-6 mb-2">Skills</h3>
+    <ul class="flex flex-wrap gap-4 list-none p-0">
       {#each bio.skills as skill}
-        <li>{skill}</li>
+        <li class="bg-gray-100 py-2 px-4 rounded-full">{skill}</li>
       {/each}
     </ul>
   </div>
 
-  <div class="contact">
-    <h3>Contact</h3>
-    <ul>
+  <div>
+    <h3 class="text-xl mt-6 mb-2">Contact</h3>
+    <ul class="flex flex-wrap gap-4 list-none p-0">
       <li>
-        <a href="mailto:{bio.contacts.email}">Email</a>
+        <a href="mailto:{bio.contacts.email}" class="text-blue-600 no-underline hover:underline">Email</a>
       </li>
       <li>
-        <a href="{bio.contacts.linkedin}" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        <a href="{bio.contacts.linkedin}" target="_blank" rel="noopener noreferrer" class="text-blue-600 no-underline hover:underline">LinkedIn</a>
       </li>
       <li>
-        <a href="{bio.contacts.github}" target="_blank" rel="noopener noreferrer">GitHub</a>
+        <a href="{bio.contacts.github}" target="_blank" rel="noopener noreferrer" class="text-blue-600 no-underline hover:underline">GitHub</a>
       </li>
       {#if bio.contacts.website}
         <li>
-          <a href="{bio.contacts.website}" target="_blank" rel="noopener noreferrer">Website</a>
+          <a href="{bio.contacts.website}" target="_blank" rel="noopener noreferrer" class="text-blue-600 no-underline hover:underline">Website</a>
         </li>
       {/if}
     </ul>
   </div>
 </section>
-
-<style>
-  .bio {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 2rem;
-  }
-
-  h2 {
-    font-size: 2rem;
-    margin-bottom: 1rem;
-  }
-
-  h3 {
-    font-size: 1.5rem;
-    margin: 1.5rem 0 0.5rem;
-  }
-
-  .bio-text {
-    line-height: 1.6;
-    margin-bottom: 2rem;
-  }
-
-  .skills ul, .contact ul {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1rem;
-    list-style: none;
-    padding: 0;
-  }
-
-  .skills li {
-    background-color: #f0f0f0;
-    padding: 0.5rem 1rem;
-    border-radius: 20px;
-  }
-
-  .contact a {
-    color: #0077cc;
-    text-decoration: none;
-  }
-
-  .contact a:hover {
-    text-decoration: underline;
-  }
-</style>

@@ -12,127 +12,41 @@
   export let demoUrl: string | undefined = undefined;
 </script>
 
-<div class="repo-card {featured ? 'featured' : ''}">
-  <h3 class="repo-name">
-    <a href={url} target="_blank" rel="noopener noreferrer">{name}</a>
+<div class={`border border-gray-200 rounded-md p-6 bg-white transition-all duration-200 ease-in-out hover:-translate-y-1 hover:shadow-lg ${featured ? 'border-yellow-400 shadow-yellow-200' : ''}`}>
+  <h3 class="mt-0 mb-2 text-xl flex items-center gap-2">
+    <a href={url} target="_blank" rel="noopener noreferrer" class="text-blue-600 no-underline hover:underline">{name}</a>
     {#if featured}
-      <span class="featured-badge">Featured</span>
+      <span class="bg-yellow-400 text-black text-xs py-1 px-2 rounded-full font-normal">Featured</span>
     {/if}
   </h3>
-  
-  <p class="repo-description">{description}</p>
-  
-  <div class="repo-meta">
+
+  <p class="text-gray-600 mb-4 leading-relaxed">{description}</p>
+
+  <div class="flex gap-4 mb-4 text-sm text-gray-600">
     {#if language}
-      <span class="language">{language}</span>
+      <span>{language}</span>
     {/if}
-    
-    <span class="stars">⭐ {stars}</span>
-    <span class="forks">🍴 {forks}</span>
+
+    <span>⭐ {stars}</span>
+    <span>🍴 {forks}</span>
   </div>
-  
+
   {#if topics.length > 0}
-    <div class="topics">
+    <div class="flex flex-wrap gap-2 mb-4">
       {#each topics as topic}
-        <span class="topic">{topic}</span>
+        <span class="bg-blue-50 text-blue-600 text-xs py-1 px-2 rounded-full">{topic}</span>
       {/each}
     </div>
   {/if}
-  
+
   {#if demoUrl}
-    <a href={demoUrl} class="demo-link" target="_blank" rel="noopener noreferrer">
+    <a 
+      href={demoUrl} 
+      class="inline-block bg-blue-600 text-white py-2 px-4 rounded text-sm no-underline transition-colors hover:bg-blue-700" 
+      target="_blank" 
+      rel="noopener noreferrer"
+    >
       View Demo
     </a>
   {/if}
 </div>
-
-<style>
-  .repo-card {
-    border: 1px solid #e1e4e8;
-    border-radius: 6px;
-    padding: 1.5rem;
-    background-color: #fff;
-    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
-  }
-  
-  .repo-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-  }
-  
-  .featured {
-    border-color: #ffcc00;
-    box-shadow: 0 0 10px rgba(255, 204, 0, 0.3);
-  }
-  
-  .repo-name {
-    margin-top: 0;
-    margin-bottom: 0.5rem;
-    font-size: 1.25rem;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-  }
-  
-  .repo-name a {
-    color: #0366d6;
-    text-decoration: none;
-  }
-  
-  .repo-name a:hover {
-    text-decoration: underline;
-  }
-  
-  .featured-badge {
-    background-color: #ffcc00;
-    color: #000;
-    font-size: 0.75rem;
-    padding: 0.25rem 0.5rem;
-    border-radius: 20px;
-    font-weight: normal;
-  }
-  
-  .repo-description {
-    color: #586069;
-    margin-bottom: 1rem;
-    line-height: 1.5;
-  }
-  
-  .repo-meta {
-    display: flex;
-    gap: 1rem;
-    margin-bottom: 1rem;
-    font-size: 0.875rem;
-    color: #586069;
-  }
-  
-  .topics {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-    margin-bottom: 1rem;
-  }
-  
-  .topic {
-    background-color: #f1f8ff;
-    color: #0366d6;
-    font-size: 0.75rem;
-    padding: 0.25rem 0.5rem;
-    border-radius: 20px;
-  }
-  
-  .demo-link {
-    display: inline-block;
-    background-color: #0366d6;
-    color: white;
-    padding: 0.5rem 1rem;
-    border-radius: 4px;
-    text-decoration: none;
-    font-size: 0.875rem;
-    transition: background-color 0.2s;
-  }
-  
-  .demo-link:hover {
-    background-color: #0255b3;
-  }
-</style>

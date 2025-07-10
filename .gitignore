@@ -14,7 +14,7 @@ dist-ssr
 
 # SvelteKit specific
 /build
-/.svelte-kit
+/.svelte-kit/
 /package
 
 # Editor directories and files
