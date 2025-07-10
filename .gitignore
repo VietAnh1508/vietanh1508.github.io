@@ -12,6 +12,11 @@ dist
 dist-ssr
 *.local
 
+# SvelteKit specific
+/build
+/.svelte-kit
+/package
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
