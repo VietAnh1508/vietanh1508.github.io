@@ -59,11 +59,17 @@ github-portfolio/
 
 ## Deployment
 
-The site is configured to deploy to GitHub Pages. To deploy:
+The site is configured to deploy to GitHub Pages automatically using GitHub Actions:
 
-1. Build the site: `npm run build`
+1. The workflow is defined in `.github/workflows/deploy.yml`
+2. When you push changes to the `main` branch, the site will automatically build and deploy
+3. You can also manually trigger a deployment from the Actions tab in your GitHub repository
+
+For manual deployment:
+
+1. Build the site: `npm run build` or `pnpm build`
 2. The built files will be in the `build` directory
-3. Deploy to GitHub Pages using GitHub Actions or manually
+3. Deploy these files to GitHub Pages
 
 ## Customization
 
